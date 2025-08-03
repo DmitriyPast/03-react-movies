@@ -3,12 +3,12 @@ import type { Movie } from "../../types/movie";
 import css from "./MovieModal.module.css";
 import { useEffect } from "react";
 
-interface movieModalProps {
+interface MovieModalProps {
   movie: Movie;
   onClose: () => void;
 }
 
-export default function MovieModal({ movie, onClose }: movieModalProps) {
+export default function MovieModal({ movie, onClose }: MovieModalProps) {
   function onBackdropClick(e: React.MouseEvent<HTMLDivElement>) {
     if (e.target === e.currentTarget) onClose();
   }
@@ -25,7 +25,7 @@ export default function MovieModal({ movie, onClose }: movieModalProps) {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
     };
-  });
+  }, [onClose]);
 
   const { backdrop_path, title, overview, release_date, vote_average } = movie;
 

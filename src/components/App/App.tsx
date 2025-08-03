@@ -13,7 +13,7 @@ export default function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
-  const [selctedMovie, setSelectedMovie] = useState<Movie | null>(null);
+  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   async function handleSubmit(query: string) {
@@ -46,8 +46,8 @@ export default function App() {
       <MovieGrid onSelect={handleSelect} movies={movies} />
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
-      {isModalOpen && selctedMovie && (
-        <MovieModal movie={selctedMovie} onClose={handleClose} />
+      {isModalOpen && selectedMovie && (
+        <MovieModal movie={selectedMovie} onClose={handleClose} />
       )}
       <Toaster />
     </div>
